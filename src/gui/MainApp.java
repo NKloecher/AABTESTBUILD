@@ -28,7 +28,7 @@ import service.Service;
 
 public class MainApp extends Application {
 	private final Service service = Service.getInstance();
-	private final CController controller = new Controller();
+	private final Controller controller = new Controller();
 	private final BorderPane pane = new BorderPane();
 	private final ComboBox<String> cbPricelist = new ComboBox<>();
 	private final ImageView img = new ImageView(
