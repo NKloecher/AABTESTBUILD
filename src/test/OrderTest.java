@@ -92,8 +92,8 @@ public class OrderTest {
 		Order order = new Order(user, pricelist);
 		order.addProduct(simpleDepositProduct);
 		order.addProduct(simpleProduct);
-	//200
-		assertEquals(2001, order.totalPrice(), 0.01);
+
+		assertEquals(200, order.totalPrice(), 0.01);
 	}
 
 	@Test
