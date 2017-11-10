@@ -17,13 +17,13 @@ import model.RentalProductOrder;
 import model.User;
 
 public class OrderTest {
-	final User user;
-	final Pricelist pricelist;
-	final Product simpleProduct;
-	final DepositProduct simpleDepositProduct;
-	final Product simpleBeer;
-	final Product simpleSoda;
-	final Product simpleGift;
+	private final User user;
+	private final Pricelist pricelist;
+	private final Product simpleProduct;
+	private final DepositProduct simpleDepositProduct;
+	private final Product simpleBeer;
+	private final Product simpleSoda;
+	private final Product simpleGift;
 
 	public OrderTest() {
 		user = new User("test", "test", "test", Permission.NORMAL);
@@ -92,8 +92,8 @@ public class OrderTest {
 		Order order = new Order(user, pricelist);
 		order.addProduct(simpleDepositProduct);
 		order.addProduct(simpleProduct);
-
-		assertEquals(200, order.totalPrice(), 0.01);
+	//200
+		assertEquals(2001, order.totalPrice(), 0.01);
 	}
 
 	@Test
@@ -375,18 +375,6 @@ public class OrderTest {
 		Order order = new Order(user, pricelist);
 		order.addProduct(simpleBeer);
 		order.addProduct(simpleSoda);
-
-		Payment payment = new Payment(PaymentType.CLIP_CARD, 2);
-		order.pay(payment);
-
-		assertEquals(50, order.totalPaymentClipCard(), 0.01);
-	}
-
-	@Test
-	public void totalPaymentClipCard1Beer1Soda2ClipsOrdering() {
-		Order order = new Order(user, pricelist);
-		order.addProduct(simpleSoda);
-		order.addProduct(simpleBeer);
 
 		Payment payment = new Payment(PaymentType.CLIP_CARD, 2);
 		order.pay(payment);
